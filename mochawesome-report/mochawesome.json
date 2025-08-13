@@ -1,0 +1,369 @@
+{
+  "stats": {
+    "suites": 4,
+    "tests": 4,
+    "passes": 4,
+    "pending": 0,
+    "failures": 0,
+    "start": "2025-08-13T05:33:24.471Z",
+    "end": "2025-08-13T05:33:38.555Z",
+    "duration": 14084,
+    "testsRegistered": 4,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "ad00f6bc-bb65-4251-8cc9-7ef1870a2187",
+      "title": "",
+      "fullFile": "",
+      "file": "",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "4b180196-8f0a-4d1b-a6b0-849713bbd481",
+          "title": "Visual Testing Saucedemo",
+          "fullFile": "/Users/pardede/Downloads/Mini Bootcamp QA/Materi 11 - Web UI Automation Advance - Part 2/sesi11__Web-UI-Automation-Using-Pom-and-Visual-testing_Yoel/saucedemo-test/screenshot_test.js",
+          "file": "/saucedemo-test/screenshot_test.js",
+          "beforeHooks": [
+            {
+              "title": "\"before all\" hook in \"Visual Testing Saucedemo\"",
+              "fullTitle": "Visual Testing Saucedemo \"before all\" hook in \"Visual Testing Saucedemo\"",
+              "timedOut": false,
+              "duration": 1610,
+              "state": null,
+              "speed": null,
+              "pass": false,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "let options = new chrome.Options();\n//options.addArguments('--headless');\noptions.addArguments('--headed');\ndriver = await new Builder().forBrowser('chrome').setChromeOptions(options).build();",
+              "err": {},
+              "uuid": "7f6fa893-ab96-41a7-a964-d15d87700a16",
+              "parentUUID": "4b180196-8f0a-4d1b-a6b0-849713bbd481",
+              "isHook": true,
+              "skipped": false
+            }
+          ],
+          "afterHooks": [
+            {
+              "title": "\"after all\" hook in \"Visual Testing Saucedemo\"",
+              "fullTitle": "Visual Testing Saucedemo \"after all\" hook in \"Visual Testing Saucedemo\"",
+              "timedOut": false,
+              "duration": 75,
+              "state": null,
+              "speed": null,
+              "pass": false,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "await driver.quit();",
+              "err": {},
+              "uuid": "83ffb590-2a97-4c59-bb18-3b261195c495",
+              "parentUUID": "4b180196-8f0a-4d1b-a6b0-849713bbd481",
+              "isHook": true,
+              "skipped": false
+            }
+          ],
+          "tests": [
+            {
+              "title": "Take screenshot of inventory page",
+              "fullTitle": "Visual Testing Saucedemo Take screenshot of inventory page",
+              "timedOut": false,
+              "duration": 1372,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "await driver.get('https://www.saucedemo.com');\n    let inputUsername =   await driver.findElement({ css: '[data-test=\"username\"]' });\n    let inputPassword =   await driver.findElement({ css: '[data-test=\"password\"]' });\n    let buttonLogin   =    await driver.findElement({ css: '[data-test=\"login-button\"]' });\n    await inputUsername.sendKeys('standard_user');\n    await inputPassword.sendKeys('secret_sauce');\n    \n    \n    // screenshot button login, sebelum diklik tombol login\n    let ss_buttonlogin = await buttonLogin.takeScreenshot();\n    fs.writeFileSync(\"buttonLogin_screenshot.png\", Buffer.from(ss_buttonlogin, \"base64\"));\n\n    //klik login\n    await buttonLogin.click();\n\n\n    //screenshot inventory product\n    let ss_product = await driver.takeScreenshot();\n    fs.writeFileSync(\"inventory_page.png\", Buffer.from(ss_product, \"base64\"));\n\n\n     // tunggu sampai tombol cart muncul\n    let cartButton = await driver.wait(\nuntil.elementLocated(By.css('.shopping_cart_link')),\n5000\n);\n\n     // pastikan tombol cart terlihat\n     await driver.wait(until.elementIsVisible(cartButton), 5000);\n\n    //screenshot cart icon\n    let ss_cart = await cartButton.takeScreenshot();\n    fs.writeFileSync(\"cart.png\", Buffer.from(ss_cart, \"base64\"));",
+              "err": {},
+              "uuid": "764bff8a-6ff8-4bf6-93e7-0445fac27ff0",
+              "parentUUID": "4b180196-8f0a-4d1b-a6b0-849713bbd481",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "764bff8a-6ff8-4bf6-93e7-0445fac27ff0"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 1372,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 30000
+        },
+        {
+          "uuid": "23933d53-40c3-4059-9cc3-7fb33b8435a8",
+          "title": "Saucedemo POM Automation",
+          "fullFile": "/Users/pardede/Downloads/Mini Bootcamp QA/Materi 11 - Web UI Automation Advance - Part 2/sesi11__Web-UI-Automation-Using-Pom-and-Visual-testing_Yoel/saucedemo-test/test_case_hook.js",
+          "file": "/saucedemo-test/test_case_hook.js",
+          "beforeHooks": [
+            {
+              "title": "\"before all\" hook in \"Saucedemo POM Automation\"",
+              "fullTitle": "Saucedemo POM Automation \"before all\" hook in \"Saucedemo POM Automation\"",
+              "timedOut": false,
+              "duration": 1665,
+              "state": null,
+              "speed": null,
+              "pass": false,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "let options = new chrome.Options();\n//options.addArguments('--headless');\noptions.addArguments('--headed');\ndriver = await new Builder().forBrowser('chrome').setChromeOptions(options).build();",
+              "err": {},
+              "uuid": "c45ebf1d-a79c-4f83-8c33-3b091aa440b4",
+              "parentUUID": "23933d53-40c3-4059-9cc3-7fb33b8435a8",
+              "isHook": true,
+              "skipped": false
+            }
+          ],
+          "afterHooks": [
+            {
+              "title": "\"after all\" hook in \"Saucedemo POM Automation\"",
+              "fullTitle": "Saucedemo POM Automation \"after all\" hook in \"Saucedemo POM Automation\"",
+              "timedOut": false,
+              "duration": 124,
+              "state": null,
+              "speed": null,
+              "pass": false,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "await driver.quit();",
+              "err": {},
+              "uuid": "3818c204-cec7-4eb5-bd7e-575f9adf7136",
+              "parentUUID": "23933d53-40c3-4059-9cc3-7fb33b8435a8",
+              "isHook": true,
+              "skipped": false
+            }
+          ],
+          "tests": [
+            {
+              "title": "Sorting product name A-Z",
+              "fullTitle": "Saucedemo POM Automation Sorting product name A-Z",
+              "timedOut": false,
+              "duration": 1026,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "let loginPage = new LoginPage(driver);\nawait loginPage.open();\nawait loginPage.login('standard_user', 'secret_sauce');\nawait loginPage.verifyLogin();\nlet inventoryPage = new InventoryPage(driver);\nawait inventoryPage.sortBy('Name (A to Z)');",
+              "err": {},
+              "uuid": "549a2545-28b2-4a48-b7ac-9372d3dfe486",
+              "parentUUID": "23933d53-40c3-4059-9cc3-7fb33b8435a8",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "549a2545-28b2-4a48-b7ac-9372d3dfe486"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 1026,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 60000
+        },
+        {
+          "uuid": "87649abb-9888-4aa3-8956-d24ad036747c",
+          "title": "Visual Testing Login Failed",
+          "fullFile": "/Users/pardede/Downloads/Mini Bootcamp QA/Materi 11 - Web UI Automation Advance - Part 2/sesi11__Web-UI-Automation-Using-Pom-and-Visual-testing_Yoel/saucedemo-test/visual_login_failed.js",
+          "file": "/saucedemo-test/visual_login_failed.js",
+          "beforeHooks": [
+            {
+              "title": "\"before all\" hook in \"Visual Testing Login Failed\"",
+              "fullTitle": "Visual Testing Login Failed \"before all\" hook in \"Visual Testing Login Failed\"",
+              "timedOut": false,
+              "duration": 1949,
+              "state": null,
+              "speed": null,
+              "pass": false,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "const options = new chrome.Options();\noptions.addArguments('--headed');\ndriver = await new Builder()\n    .forBrowser('chrome')\n    .setChromeOptions(options)\n    .build();",
+              "err": {},
+              "uuid": "ae31d738-c299-48c2-b6ab-e0607edbea22",
+              "parentUUID": "87649abb-9888-4aa3-8956-d24ad036747c",
+              "isHook": true,
+              "skipped": false
+            }
+          ],
+          "afterHooks": [
+            {
+              "title": "\"after all\" hook in \"Visual Testing Login Failed\"",
+              "fullTitle": "Visual Testing Login Failed \"after all\" hook in \"Visual Testing Login Failed\"",
+              "timedOut": false,
+              "duration": 143,
+              "state": null,
+              "speed": null,
+              "pass": false,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "await driver.quit();",
+              "err": {},
+              "uuid": "003e5113-d4af-45f0-8069-cff31c295936",
+              "parentUUID": "87649abb-9888-4aa3-8956-d24ad036747c",
+              "isHook": true,
+              "skipped": false
+            }
+          ],
+          "tests": [
+            {
+              "title": "Login failed visual comparison",
+              "fullTitle": "Visual Testing Login Failed Login failed visual comparison",
+              "timedOut": false,
+              "duration": 2188,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "const loginPage = new LoginPage(driver);\n // nama file baseline\nlet baselinePath = 'baseline-login-failed.png';\n\n  // cek apakah file baseline sudah ada, kalau belum ada -> dibuat\nif (!fs.existsSync(baselinePath)) {\n    await loginPage.open(); //untuk buka halaman tanpa login\n    let baselineScreenshot = await driver.takeScreenshot();\n    fs.writeFileSync(baselinePath, baselineScreenshot, 'base64');\n    console.log(`✅ Baseline dibuat dari halaman tanpa error: ${baselinePath}`);\n    return;\n}\n//jalanin login gagal untuk current screenshot\nawait loginPage.open();\nawait loginPage.login('wrong_user','wrong_password');\nlet errorMessage = await driver.wait(\n    until.elementLocated(By.css('[data-test=\"error\"]')),\n    5000\n);\nawait driver.wait(until.elementIsVisible(errorMessage), 5000);\n\n\n// ambil screenshot setelah gagal login\nlet screenshot = await driver.takeScreenshot();\n// kalau sudah ada file baseline-login-failed, terus bandingin\nfs.writeFileSync('current-login-failed.png', screenshot, 'base64');\n// load baseline & current image\nlet baselineImg = PNG.sync.read(fs.readFileSync(baselinePath));\nlet currentImg  = PNG.sync.read(fs.readFileSync('current-login-failed.png'));\n// buat file output diff\nlet { width, height } = baselineImg;\nlet diff = new PNG({ width, height });\nlet pixelDiff = pixelmatch(\n    baselineImg.data,\n    currentImg.data,\n    diff.data,\n    width,\n    height,\n    { threshold: 0.1 }\n);\n\nfs.writeFileSync('diff-login-failed.png', PNG.sync.write(diff));\n// assert: gambar harus sama persis\nif (pixelDiff > 0) {\n    console.log(`Visual difference detected! Pixel diff: ${pixelDiff}`);\n} else {\n    console.log(\"No visual difference found\");\n}",
+              "err": {},
+              "uuid": "e1be00fe-58ea-4901-b850-bbffdc988dbd",
+              "parentUUID": "87649abb-9888-4aa3-8956-d24ad036747c",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "e1be00fe-58ea-4901-b850-bbffdc988dbd"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 2188,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 30000
+        },
+        {
+          "uuid": "27dfdce0-f7b0-4511-8c4f-1a64ef9aca65",
+          "title": "Visual Testing",
+          "fullFile": "/Users/pardede/Downloads/Mini Bootcamp QA/Materi 11 - Web UI Automation Advance - Part 2/sesi11__Web-UI-Automation-Using-Pom-and-Visual-testing_Yoel/saucedemo-test/visual_testing.js",
+          "file": "/saucedemo-test/visual_testing.js",
+          "beforeHooks": [
+            {
+              "title": "\"before all\" hook in \"Visual Testing\"",
+              "fullTitle": "Visual Testing \"before all\" hook in \"Visual Testing\"",
+              "timedOut": false,
+              "duration": 1467,
+              "state": null,
+              "speed": null,
+              "pass": false,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "const options = new chrome.Options();\noptions.addArguments('--headed');\ndriver = await new Builder()\n    .forBrowser('chrome')\n    .setChromeOptions(options)\n    .build();",
+              "err": {},
+              "uuid": "d69ddc86-6b98-4e00-be74-a8c4eeb81450",
+              "parentUUID": "27dfdce0-f7b0-4511-8c4f-1a64ef9aca65",
+              "isHook": true,
+              "skipped": false
+            }
+          ],
+          "afterHooks": [
+            {
+              "title": "\"after all\" hook in \"Visual Testing\"",
+              "fullTitle": "Visual Testing \"after all\" hook in \"Visual Testing\"",
+              "timedOut": false,
+              "duration": 129,
+              "state": null,
+              "speed": null,
+              "pass": false,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "await driver.quit();",
+              "err": {},
+              "uuid": "9753bba8-c51c-41ef-8041-4b0c0eb2c046",
+              "parentUUID": "27dfdce0-f7b0-4511-8c4f-1a64ef9aca65",
+              "isHook": true,
+              "skipped": false
+            }
+          ],
+          "tests": [
+            {
+              "title": "Login page visual comparison",
+              "fullTitle": "Visual Testing Login page visual comparison",
+              "timedOut": false,
+              "duration": 2311,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "const loginPage = new LoginPage(driver);\n// buka website & login\nawait loginPage.open();\nawait loginPage.login('standard_user', 'secret_sauce');\nawait loginPage.verifyLogin();\n// ambil screenshot setelah login\nlet screenshot = await driver.takeScreenshot();\nfs.writeFileSync('current-login.png', screenshot, 'base64');\n// load baseline & current image\nlet baselineImg = PNG.sync.read(fs.readFileSync('baseline.png'));\nlet currentImg  = PNG.sync.read(fs.readFileSync('current-login.png'));\n// buat file output diff\nlet { width, height } = baselineImg;\nlet diff = new PNG({ width, height });\nlet pixelDiff = pixelmatch(\n    baselineImg.data,\n    currentImg.data,\n    diff.data,\n    width,\n    height,\n    { threshold: 0.1 }\n);\nfs.writeFileSync('diff-login.png', PNG.sync.write(diff));\n// assert: gambar harus sama persis\nif (pixelDiff > 0) {\n    console.log(`Visual difference detected! Pixel diff: ${pixelDiff}`);\n} else {\n    console.log(\"No visual difference found\");\n}",
+              "err": {},
+              "uuid": "a009c4f5-7e03-401d-9166-440ff7ef21f9",
+              "parentUUID": "27dfdce0-f7b0-4511-8c4f-1a64ef9aca65",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "a009c4f5-7e03-401d-9166-440ff7ef21f9"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 2311,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 30000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 60000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "11.7.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": null,
+      "version": "6.2.0"
+    }
+  }
+}
